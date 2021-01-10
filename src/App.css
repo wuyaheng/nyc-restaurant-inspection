@@ -17,3 +17,8 @@ select:hover {
   outline: none !important;
   box-shadow: none !important;
 }
+
+.leaflet-tooltip{
+  width: 250px !important;
+  white-space: normal !important;
+}
