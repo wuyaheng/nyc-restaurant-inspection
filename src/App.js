@@ -90,9 +90,9 @@ class App extends Component {
           </span>
         </nav>
         <div className="container-fluid">
-          <div className="row mt-2">
+          <div className="row mt-1">
             <div className="col-md-5">
-            <h5>Choose A Borough</h5>
+            {/* <h5>Choose A Borough</h5> */}
               <SearchForm
                 results={this.state.boro}
                 handleInputChange={this.handleInputChange}

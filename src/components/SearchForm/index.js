@@ -3,7 +3,7 @@ import "./style.css";
 
 function SearchForm({ results, handleInputChange }) {
   return (
-    <div className="input-group mb-3">
+    <div className="input-group mb-1">
       <select 
         className="custom-select"
         id="inputGroupSelect01"
