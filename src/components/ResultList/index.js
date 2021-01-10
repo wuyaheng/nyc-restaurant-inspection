@@ -44,15 +44,18 @@ function ResultList(props) {
             gridLines: {
               display: false,
             },
+            ticks: {
+              display: false
+            }
           }
         ],
         yAxes: [{
           ticks: {
-              beginAtZero: true,
-              min: 0,
-              stepSize: 1
+            display: false
           },
-          stacked: true
+          gridLines: {
+            display: false
+          }
       }]
       }
     };
