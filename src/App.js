@@ -90,9 +90,9 @@ class App extends Component {
           NYC Restaurant Inspection Result Visualization
           </span>
         </nav>
-        <div className="container-fluid">
+        <div className="container-fluid mt-2">
           <div className="row">
-            <div className="col-md-5 p-1">
+            <div className="col-md-5">
             <div class="input-group mb-1">
               <input type="text" class="form-control" value={this.state.sel_zipCode} onChange={this.handleChange}
                     placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
@@ -119,7 +119,7 @@ class App extends Component {
                 </a>
               </p>
             </div>
-            <div className="col-md-7 p-1">
+            <div className="col-md-7">
               <div className="card">
                 <MapBox results={this.state.filtered} />
               </div>

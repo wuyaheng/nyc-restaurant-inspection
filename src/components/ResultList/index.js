@@ -26,7 +26,7 @@ function ResultList(props) {
           render: 'percentage',
           precision: 0,
           showZero: true,
-          fontSize: 15,
+          fontSize: 13,
           fontColor: '#fff',
           arc: false,
           // show the real calculated percentages from the values and don't apply the additional logic to fit the percentages to 100 in total, default is false
