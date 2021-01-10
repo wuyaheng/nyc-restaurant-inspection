@@ -4,15 +4,6 @@ import 'chartjs-plugin-labels';
 
 function ResultList(props) {
 
-  // var colorArray = [
-  //   "#2A81CB",
-  //   "#CB2B3E",
-  //   "#c5baaf",
-  //   "#cc8b86",
-  //   "#84a59d",
-  //   "#f7ede2",
-  // ];
-
   const PieChart = ({ type }) => {
     const obj = {};
 
@@ -29,7 +20,6 @@ function ResultList(props) {
           fontSize: 13,
           fontColor: '#fff',
           arc: false,
-          // show the real calculated percentages from the values and don't apply the additional logic to fit the percentages to 100 in total, default is false
           showActualPercentages: true,
           outsidePadding: 4,
           textMargin: 4
@@ -37,7 +27,8 @@ function ResultList(props) {
       },
       title: {
         display: true,
-        text: 'Critical Flag'
+        text: 'Critical Flag',
+        fontSize: 15
      },
       scales: {
         xAxes: [
@@ -93,15 +84,13 @@ function ResultList(props) {
 
 
   return (
-    <div className="container-fluid mb-2">
       <div className="row">
-      <div className="col-md-12" style={{paddingLeft: "2px", paddingRight: "2px"}}>
+      <div className="col-md-12">
         <div className="card">
           <PieChart type="critical_flag" />
           </div>
         </div>{" "}
-      </div>{" "}
-    </div>
+      </div>
   );
 }
 

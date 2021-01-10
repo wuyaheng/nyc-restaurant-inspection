@@ -102,10 +102,13 @@ class App extends Component {
             </div>
 
           <ResultList results={this.state.filtered} /> 
-          <div className="col-md-12 text-center mb-2">
+          <div className="row text-center mb-2 mt-1">
+            <div className="col-md-12">
             <button className="btn btn-outline-dark mr-1" onClick={() => this.advanceOffset(true)}>Prev</button>
               <button className="btn btn-outline-dark ml-1" onClick={() => this.advanceOffset(false)}>Next</button>
             </div>
+            </div>
+
               <p>
                 Data Source:{" "}
                 <a
