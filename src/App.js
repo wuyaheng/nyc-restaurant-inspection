@@ -86,8 +86,8 @@ class App extends Component {
     return (
       <>
         <nav className="navbar navbar-light bg-dark">
-          <span className="navbar-brand mb-0 h1 text-white pt-1">
-          NYC Restaurant Inspection Result Visualization
+          <span className="navbar-brand mb-0 text-white">
+          <h5>NYC Restaurant Inspection Result</h5>
           </span>
         </nav>
         <div className="container-fluid mt-2">
@@ -102,7 +102,7 @@ class App extends Component {
             </div>
 
           <ResultList results={this.state.filtered} /> 
-          <div className="row text-center mb-2 mt-1">
+          <div className="row text-center mb-2 mt-2">
             <div className="col-md-12">
             <button className="btn btn-outline-dark mr-1" onClick={() => this.advanceOffset(true)}>Prev</button>
               <button className="btn btn-outline-dark ml-1" onClick={() => this.advanceOffset(false)}>Next</button>

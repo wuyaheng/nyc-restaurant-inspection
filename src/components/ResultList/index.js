@@ -84,13 +84,9 @@ function ResultList(props) {
 
 
   return (
-      <div className="row">
-      <div className="col-md-12">
         <div className="card">
           <PieChart type="critical_flag" />
-          </div>
-        </div>{" "}
-      </div>
+        </div>
   );
 }
 
