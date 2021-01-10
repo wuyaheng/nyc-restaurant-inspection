@@ -26,9 +26,32 @@ export default (props) => {
         }
       ).addTo(mymap);
 
-      props.pins.forEach((pin) =>
-        L.marker([pin.latitude, pin.longitude]).addTo(mymap).bindTooltip("<h6><b>" + pin.dba + "</b></h6>Critical Flag: " + pin.critical_flag + "<p class='p-0 m-0'>Violation Description: " + pin.violation_description + "</p>")
-      );
+      var blueIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      var redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      props.pins.forEach((pin) => {
+        if (pin.critical_flag == 'N') {
+          L.marker([pin.latitude, pin.longitude],{icon: blueIcon}).addTo(mymap).bindTooltip("<h6><b>" + pin.dba + "</b></h6>Critical Flag: " + pin.critical_flag + "<p class='p-0 m-0'>Violation Description: " + pin.violation_description + "</p>")
+        } else {
+          L.marker([pin.latitude, pin.longitude],{icon: redIcon}).addTo(mymap).bindTooltip("<h6><b>" + pin.dba + "</b></h6>Critical Flag: " + pin.critical_flag + "<p class='p-0 m-0'>Violation Description: " + pin.violation_description + "</p>")      
+        }
+        
+      });
     }
 
     return () => (MAP_CONTAINER.innerHTML = "");

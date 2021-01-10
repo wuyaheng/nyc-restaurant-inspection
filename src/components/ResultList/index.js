@@ -1,18 +1,18 @@
 import React from "react";
-import { Bar, Line } from "react-chartjs-2";
+import { Pie, Line } from "react-chartjs-2";
 
 function ResultList(props) {
 
   var colorArray = [
-    "#f5cac3",
-    "#ffcb77",
+    "#2A81CB",
+    "#CB2B3E",
     "#c5baaf",
     "#cc8b86",
     "#84a59d",
     "#f7ede2",
   ];
 
-  const BarChart = ({ type }) => {
+  const PieChart = ({ type }) => {
     const obj = {};
 
     let options = {
@@ -55,7 +55,7 @@ function ResultList(props) {
     let entries =
       Object.entries(obj).sort((a, b) => (a[0] > b[0] ? 1 : -1)) || [];
      return (
-        <Bar
+        <Pie
           data={{
             labels: entries.map((x) => x[0]),
             datasets: [
@@ -138,7 +138,7 @@ function ResultList(props) {
       <div className="row">
       <div className="col-md-12" style={{paddingLeft: "2px", paddingRight: "2px"}}>
         <div className="card">
-          <BarChart type="critical_flag" />
+          <PieChart type="critical_flag" />
           </div>
         </div>{" "}
 
