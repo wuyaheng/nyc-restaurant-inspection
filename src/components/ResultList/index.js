@@ -4,14 +4,14 @@ import 'chartjs-plugin-labels';
 
 function ResultList(props) {
 
-  var colorArray = [
-    "#2A81CB",
-    "#CB2B3E",
-    "#c5baaf",
-    "#cc8b86",
-    "#84a59d",
-    "#f7ede2",
-  ];
+  // var colorArray = [
+  //   "#2A81CB",
+  //   "#CB2B3E",
+  //   "#c5baaf",
+  //   "#cc8b86",
+  //   "#84a59d",
+  //   "#f7ede2",
+  // ];
 
   const PieChart = ({ type }) => {
     const obj = {};
@@ -19,6 +19,7 @@ function ResultList(props) {
     let options = {
       legend: {
         display: true,
+        reverse: true
       },
       plugins: {
         labels: {
@@ -79,7 +80,7 @@ function ResultList(props) {
             datasets: [
               {
                 data: entries.map((x) => x[1]),
-                backgroundColor: colorArray, 
+                backgroundColor: ["#2A81CB","#CB2B3E"], 
               },
             ],
           }}
@@ -88,7 +89,6 @@ function ResultList(props) {
       );
 
   };
-
 
 
 

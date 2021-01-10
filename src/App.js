@@ -7,7 +7,7 @@ import "./App.css";
 class App extends Component {
   state = {
     sel_zipCode: "",
-    limit: 2000,
+    limit: 1000,
     results: [],
     filtered: [],
   };
@@ -75,8 +75,8 @@ class App extends Component {
           <div className="row mt-1">
             <div className="col-md-5">
             <div class="input-group mb-1">
-              <input type="text" class="form-control"
-                    onChange={this.handleChange} placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
+              <input type="text" class="form-control" value={this.state.sel_zipCode} onChange={this.handleChange}
+                    placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">Go!</button>
               </div>
