@@ -27,7 +27,7 @@ function ResultList(props) {
       },
       title: {
         display: true,
-        text: 'Critical Flag',
+        text: 'Whether Restaurant has Critical Flag',
         fontSize: 15
      },
       scales: {

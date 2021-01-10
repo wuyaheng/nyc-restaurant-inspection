@@ -7,7 +7,7 @@ import "./App.css";
 class App extends Component {
   state = {
     sel_zipCode: "",
-    limit: 1000,
+    limit: 2000,
     offset: 0,
     results: [],
     filtered: [],
@@ -93,13 +93,16 @@ class App extends Component {
         <div className="container-fluid mt-2">
           <div className="row">
             <div className="col-md-5">
+            <label for="form-control"><h5 className="pb-0 mb-0">Enter Another Zip Code Below to Locate Restaurants</h5></label>
             <div class="input-group mb-2">
-              <input type="text" class="form-control" value={this.state.sel_zipCode} onChange={this.handleChange}
+              <input type="text" class="form-control" value={this.state.sel_zipCode} onChange={this.handleChange} 
                     placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">Go!</button>
               </div>
             </div>
+
+            <p>This dataset contains every sustained or not yet adjudicated violation citation from every inspection conducted up to three years prior to the most recent inspection for restaurants located in New York City.</p>
             <div className="alert alert-primary mb-2" role="alert">
                 Number of Restaurants Displayed: {this.state.filtered.length}
             </div>
