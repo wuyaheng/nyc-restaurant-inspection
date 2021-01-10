@@ -93,14 +93,16 @@ class App extends Component {
         <div className="container-fluid mt-2">
           <div className="row">
             <div className="col-md-5">
-            <div class="input-group mb-1">
+            <div class="input-group mb-2">
               <input type="text" class="form-control" value={this.state.sel_zipCode} onChange={this.handleChange}
                     placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">Go!</button>
               </div>
             </div>
-
+            <div className="alert alert-primary mb-2" role="alert">
+                Number of Restaurants Displayed: {this.state.filtered.length}
+            </div>
           <ResultList results={this.state.filtered} /> 
           <div className="row text-center mb-2 mt-2">
             <div className="col-md-12">
