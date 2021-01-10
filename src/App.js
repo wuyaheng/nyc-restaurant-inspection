@@ -9,6 +9,8 @@ class App extends Component {
   state = {
     boro: [],
     sel_boro: "",
+    zipCode: [],
+    sel_zipCode: "",
     limit: 1000,
     results: [],
     filtered: [],
