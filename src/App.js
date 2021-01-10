@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SearchForm from "./components/SearchForm/index";
 import ResultList from "./components/ResultList/index";
 import MapBox from "./components/MapBox/MapBox";
 import axios from "axios"; 
@@ -7,11 +6,8 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    boro: [],
-    sel_boro: "",
-    zipCode: [],
     sel_zipCode: "",
-    limit: 1000,
+    limit: 2000,
     results: [],
     filtered: [],
   };
@@ -19,27 +15,11 @@ class App extends Component {
   componentDidMount() {
     this.setState(
       {
-        sel_boro: "Bronx", 
+        sel_zipCode: "10010"
       },
       this.searchRestaurant
     );
-    this.searchBoro(); 
   }
-
-  searchBoro = async () => {
-    try {
-      const res = await axios.get(
-        "https://data.cityofnewyork.us/resource/43nn-pn8j.json?$group=boro&$select=boro"
-      );
-      console.log(res)
-      this.setState({
-        boro: res.data.map((x) => x.boro),
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
 
 
   
@@ -48,7 +28,7 @@ class App extends Component {
       `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$limit=${this.state.limit}`,
       {
         params: {
-          boro: this.state.sel_boro,
+          zipcode: this.state.sel_zipCode
         },
       }
     );
@@ -72,14 +52,16 @@ class App extends Component {
     return Number(n) === n && n % 1 !== 0;
   }
 
-  handleInputChange = (event) => {
+
+  handleChange = (event) => {
     this.setState(
       {
-        sel_boro: event.target.value,
+      sel_zipCode: event.target.value,
       },
       this.searchRestaurant
-    );
+      );
   };
+
 
   render() {
     return (
@@ -92,11 +74,13 @@ class App extends Component {
         <div className="container-fluid">
           <div className="row mt-1">
             <div className="col-md-5">
-            {/* <h5>Choose A Borough</h5> */}
-              <SearchForm
-                results={this.state.boro}
-                handleInputChange={this.handleInputChange}
-              />
+            <div class="input-group mb-1">
+              <input type="text" class="form-control"
+                    onChange={this.handleChange} placeholder="Enter Zip Code" aria-label="Enter Zip Code" aria-describedby="basic-addon2"/>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Go!</button>
+              </div>
+            </div>
 
           <ResultList results={this.state.filtered} /> 
               <p>

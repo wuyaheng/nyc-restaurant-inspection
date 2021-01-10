@@ -12,8 +12,8 @@ nav {
 
 button:focus,
 button:hover,
-select:focus,
-select:hover {
+input:focus,
+input:hover {
   outline: none !important;
   box-shadow: none !important;
 }
