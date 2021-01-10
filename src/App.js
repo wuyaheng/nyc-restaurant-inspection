@@ -76,7 +76,7 @@ class App extends Component {
             <div className="col-md-5">
             <div class="input-group mb-1">
               <input type="text" class="form-control"
-                    onChange={this.handleChange} placeholder="Enter Zip Code" aria-label="Enter Zip Code" aria-describedby="basic-addon2"/>
+                    onChange={this.handleChange} placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">Go!</button>
               </div>
