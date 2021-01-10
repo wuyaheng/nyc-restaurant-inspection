@@ -7,7 +7,7 @@ import "./App.css";
 class App extends Component {
   state = {
     sel_zipCode: "",
-    limit: 2000,
+    limit: 1000,
     offset: 0,
     results: [],
     filtered: [],
