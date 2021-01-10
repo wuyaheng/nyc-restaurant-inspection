@@ -8,6 +8,7 @@ class App extends Component {
   state = {
     sel_zipCode: "",
     limit: 1000,
+    offset: 0,
     results: [],
     filtered: [],
   };
@@ -25,7 +26,7 @@ class App extends Component {
   
   searchRestaurant = async () => {
     const res = await axios.get(
-      `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$limit=${this.state.limit}`,
+      `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$limit=${this.state.limit}&$offset=${this.state.offset}`,
       {
         params: {
           zipcode: this.state.sel_zipCode
@@ -63,6 +64,24 @@ class App extends Component {
   };
 
 
+  advanceOffset = (val) => {
+    if (val) {
+      this.setState(
+        {
+          offset: this.state.offset + this.state.limit,
+        },
+        this.searchRestaurant
+      );
+    } else if (this.state.offset - this.state.limit >= 0) {
+      this.setState(
+        {
+          offset: this.state.offset - this.state.limit,
+        },
+        this.searchRestaurant
+      );
+    }
+  };
+
   render() {
     return (
       <>
@@ -72,8 +91,8 @@ class App extends Component {
           </span>
         </nav>
         <div className="container-fluid">
-          <div className="row mt-1">
-            <div className="col-md-5">
+          <div className="row">
+            <div className="col-md-5 p-1">
             <div class="input-group mb-1">
               <input type="text" class="form-control" value={this.state.sel_zipCode} onChange={this.handleChange}
                     placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
@@ -83,6 +102,10 @@ class App extends Component {
             </div>
 
           <ResultList results={this.state.filtered} /> 
+          <div className="col-md-12 text-center mb-2">
+            <button className="btn btn-outline-dark mr-1" onClick={() => this.advanceOffset(true)}>Prev</button>
+              <button className="btn btn-outline-dark ml-1" onClick={() => this.advanceOffset(false)}>Next</button>
+            </div>
               <p>
                 Data Source:{" "}
                 <a
@@ -96,7 +119,7 @@ class App extends Component {
                 </a>
               </p>
             </div>
-            <div className="col-md-7">
+            <div className="col-md-7 p-1">
               <div className="card">
                 <MapBox results={this.state.filtered} />
               </div>
