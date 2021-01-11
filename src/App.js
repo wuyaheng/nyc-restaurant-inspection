@@ -55,12 +55,18 @@ class App extends Component {
 
 
   handleChange = (event) => {
-    this.setState(
-      {
-      sel_zipCode: event.target.value,
-      },
-      this.searchRestaurant
-      );
+    let zip = event.target.value.trim();
+    let isZip = zip.match(/(^\d{5}$)|(^\d{5}-\d{4}$)/);
+
+    if (isZip) {
+      this.setState(
+        {
+        sel_zipCode: event.target.value,
+        },
+        this.searchRestaurant
+        );
+    }
+   
   };
 
 
@@ -95,7 +101,7 @@ class App extends Component {
             <div className="col-md-5">
             <label for="form-control"><h5 className="pb-0 mb-0">Enter Another Zip Code Below to Locate Restaurants</h5></label>
             <div class="input-group mb-2">
-              <input type="text" class="form-control" value={this.state.sel_zipCode} onChange={this.handleChange} 
+              <input type="text" class="form-control" onChange={this.handleChange} 
                     placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">Go!</button>
@@ -106,7 +112,9 @@ class App extends Component {
             <div className="alert alert-primary mb-2" role="alert">
                 Number of Restaurants Displayed: {this.state.filtered.length}
             </div>
+
           <ResultList results={this.state.filtered} /> 
+
           <div className="row text-center mb-2 mt-2">
             <div className="col-md-12">
             <button className="btn btn-outline-dark mr-1" onClick={() => this.advanceOffset(true)}>Prev</button>
