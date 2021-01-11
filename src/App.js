@@ -99,10 +99,9 @@ class App extends Component {
         <div className="container-fluid mt-2">
           <div className="row">
             <div className="col-md-5">
-            <label for="form-control"><h5 className="pb-0 mb-0">Enter Another Zip Code Below to Locate Restaurants</h5></label>
             <div class="input-group mb-2">
               <input type="text" class="form-control" onChange={this.handleChange} 
-                    placeholder="Enter Another Zip Code" aria-label="Enter Another Zip Code" aria-describedby="basic-addon2"/>
+                    placeholder="Enter Zip Code to Locate Restaurants" aria-label="Enter Zip Code to Locate Restaurants" aria-describedby="basic-addon2"/>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button">Go!</button>
               </div>
