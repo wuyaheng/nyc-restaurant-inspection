@@ -121,7 +121,16 @@ class App extends Component {
             </div>
             </div>
 
-              <p>
+            </div>
+            <div className="col-md-7">
+              <div className="card">
+                <MapBox results={this.state.filtered} />
+              </div>
+            </div>
+       
+
+          </div>
+          <p>
                 Data Source:{" "}
                 <a
                   href="https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j"
@@ -133,15 +142,6 @@ class App extends Component {
                   NYC OpenData
                 </a>
               </p>
-            </div>
-            <div className="col-md-7">
-              <div className="card">
-                <MapBox results={this.state.filtered} />
-              </div>
-            </div>
-       
-
-          </div>
         </div>
       </>
     );
