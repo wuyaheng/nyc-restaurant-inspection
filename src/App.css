@@ -22,3 +22,7 @@ input:hover {
   width: 250px !important;
   white-space: normal !important;
 }
+
+.modal-content {
+  text-align: justify !important;
+}

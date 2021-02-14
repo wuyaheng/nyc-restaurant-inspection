@@ -91,7 +91,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <nav className="navbar navbar-light bg-dark">
+        <nav className="navbar navbar-light bg-dark pb-0 pt-1">
           <span className="navbar-brand text-white">
           <h5>NYC Restaurant Inspection Result</h5>
           </span>
