@@ -96,9 +96,20 @@ class App extends Component {
           <h5>NYC Restaurant Inspection Result</h5>
           </span>
         </nav>
-        <div className="container-fluid mt-2">
+        <div className="container-fluid mt-2"> 
           <div className="row">
-            <div className="col-md-5">
+            <div className="col-md-4">
+
+            <button type="button" class="btn btn-block btn-dark mb-2" data-toggle="modal" data-target=".bd-example-modal-sm">About the Project</button>
+
+            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content p-4">
+                NYC Restaurant Inspection Results is a dashboard that enables users to find restaurant inspection results in each zip code. Makers in red indicate restaurants that have a critical flag, and a detailed description of the violation can be found on the tooltip when you hover over the marker. On the accompanying pie chart, you can find the percentage of the restaurants among those displayed that have the critical flag. Since the dashboard only displays a maximum of 1,000 restaurants, users can click “Prev” or “Next” to display additional restaurants in the selected zip code. 
+                </div>
+              </div>
+            </div>
+
             <div class="input-group mb-2">
               <input type="text" class="form-control" onChange={this.handleChange} 
                     placeholder="Enter Zip Code to Locate Restaurants" aria-label="Enter Zip Code to Locate Restaurants" aria-describedby="basic-addon2"/>
@@ -107,7 +118,7 @@ class App extends Component {
               </div>
             </div>
 
-            <p>This dataset contains every sustained or not yet adjudicated violation citation from every inspection conducted up to three years prior to the most recent inspection for restaurants located in New York City.</p>
+  
             <div className="alert alert-primary mb-2" role="alert">
                 Number of Restaurants Displayed: {this.state.filtered.length}
             </div>
@@ -122,7 +133,7 @@ class App extends Component {
             </div>
 
             </div>
-            <div className="col-md-7">
+            <div className="col-md-8">
               <div className="card">
                 <MapBox results={this.state.filtered} />
               </div>
